@@ -20,11 +20,6 @@
 		<!-- get photos from instagram API -->
 		<?php include $_SERVER['DOCUMENT_ROOT']."/templates/getInstaPhotos.php"; ?>
 
-		<script type="text/JavaScript">
-			function timedRefresh(timeoutPeriod) {
-				setTimeout("location.reload(true);",timeoutPeriod);
-			}
-		</script>
 	</head>
 
 	<body>
@@ -34,7 +29,7 @@
 		<!-- Content -->
 		<div class="slider-wrapper center">
 		    <div id="slider" class="nivoSlider">
-		    	<?php foreach ($result->data as $post): ?>
+		    	<?php foreach ($photos as $post): ?>
 		    		<img src="<?php echo $post->images->standard_resolution->url; ?>" title="<?php echo 'From: ' .$post->user->username . ' - ' . $post->caption->text; ?>">
 				<?php endforeach ?>
 		    </div>
